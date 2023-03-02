@@ -45,7 +45,7 @@ export class App extends EventDispatcher {
     });
 
     this._sizes.addEventListener('update', ()=> {
-      this.resize();
+      this.update();
     });
   }
 
