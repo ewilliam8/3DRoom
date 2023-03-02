@@ -54,7 +54,22 @@ module.exports = {
                 ]
             },
 
-            // Images
+            // Models
+            {
+                test: /\.(glb)$/,
+                use:
+                [
+                    {
+                        loader: 'file-loader',
+                        options:
+                        {
+                            outputPath: 'assets/models/'
+                        }
+                    }
+                ]
+            },
+
+            // Textures
             {
                 test: /\.(jpg|png|gif|svg)$/,
                 use:
@@ -63,7 +78,7 @@ module.exports = {
                         loader: 'file-loader',
                         options:
                         {
-                            outputPath: 'assets/images/'
+                            outputPath: 'assets/textures/'
                         }
                     }
                 ]

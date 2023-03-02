@@ -1,8 +1,10 @@
 import * as THREE from "three";
 import Sizes from "./Utils/Sizes";
-import Camera from "./Camera";
 import Renderer from "./Renderer";
-import World from "./World/World"
+import World from "./World/World";
+import Camera from "./Camera";
+import Resources from "./Utils/Resources";
+import assets from "./Utils/assets";
 
 import { EventDispatcher } from "three";
 import * as dat from "dat.gui";
@@ -35,16 +37,18 @@ export class App extends EventDispatcher {
     this.renderer = new Renderer(this);
 
     // World
-    this.world = new World(this); 
+    this.assets = assets;
+    this.resources = new Resources(this);
+    this.world = new World(this);
 
     /**
      * Event Listeners
-     */ 
-    this._sizes.addEventListener('resize', ()=> {
+     */
+    this._sizes.addEventListener("resize", () => {
       this.resize();
     });
 
-    this._sizes.addEventListener('update', ()=> {
+    this._sizes.addEventListener("update", () => {
       this.update();
     });
   }
